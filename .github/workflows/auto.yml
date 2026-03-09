@@ -19,6 +19,7 @@ env:
   WEIXIN_WEBHOOK: ${{ secrets.WEIXIN_WEBHOOK }}
   SERVERPUSHKEY: ${{ secrets.SERVERPUSHKEY }}
   FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+  BARK_WEBHOOK: ${{ secrets.BARK_WEBHOOK }}
 
 jobs:
   CheckIn:
