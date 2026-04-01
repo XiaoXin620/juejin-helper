@@ -3,13 +3,26 @@ const env = require("./utils/env");
 const utils = require("./utils/utils");
 
 function loadJuejinHelper() {
+  let helperModule = null;
+
   try {
     const localModule = require("../packages/juejin-helper/src/index");
-    return localModule.default || localModule;
+    helperModule = localModule.default || localModule;
   } catch (error) {
     const publishedModule = require("juejin-helper");
-    return publishedModule.default || publishedModule;
+    helperModule = publishedModule.default || publishedModule;
   }
+
+  if (typeof helperModule !== "function") {
+    throw new Error("福利吧论坛签到加载失败：未找到 JuejinHelper 构造函数");
+  }
+
+  const helper = new helperModule();
+  if (typeof helper.setCookie !== "function" || typeof helper.fuliba !== "function") {
+    throw new Error("福利吧论坛签到加载失败：当前加载到的 juejin-helper 版本不包含 setCookie/fuliba，请确保 GitHub Actions 先安装仓库根目录依赖");
+  }
+
+  return helperModule;
 }
 
 const JuejinHelper = loadJuejinHelper();
