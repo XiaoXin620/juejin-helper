@@ -6,6 +6,7 @@ import Growth from "./growth";
 import SeaGold from "./seagold";
 import NumPuzz from "./numpuzz";
 import Bugfix from "./bugfix";
+import Fuliba from "./fuliba";
 import JuejinBrowser from "./utils/browser";
 
 type JuejinUserProps = {
@@ -27,15 +28,23 @@ class JuejinHelper {
   user: JuejinUserProps = null;
 
   async login(cookie: string) {
-    this.cookie.setCookieValue(cookie);
+    this.setCookie(cookie);
     this.cookieTokens = parseCookieTokens(this.cookie);
     this.user = await api.get("/user_api/v1/user/get", {
       headers: { cookie: this.getCookie() }
     });
   }
 
+  setCookie(cookie: string) {
+    this.cookie.setCookieValue(cookie);
+    this.cookieTokens = null;
+    this.user = null;
+    return this;
+  }
+
   async logout() {
     this.cookie.clear();
+    this.cookieTokens = null;
     this.user = null;
   }
 
@@ -76,6 +85,10 @@ class JuejinHelper {
 
   bugfix() {
     return new Bugfix(this);
+  }
+
+  fuliba() {
+    return new Fuliba(this);
   }
 
   browser() {

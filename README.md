@@ -6,7 +6,7 @@
 
 <h1 align="center">JuejinHelper-稀土掘金助手</h1>
 
-<p align="center">签到、抽奖、沾喜气、消除Bug、海底掘金游戏、自动化工作流。</p>
+<p align="center">签到、抽奖、沾喜气、论坛签到、自动化工作流。</p>
 
 ## 通知
 ✨ 自动化工作流，新增飞书推送。 \
@@ -21,8 +21,10 @@
 
 ## 使用
 
-自动化执行任务: 掘金每日签到, 沾喜气, 免费抽奖, 消除Bug, 海底掘金游戏, 最后将结果报告邮件通知订阅人。\
+自动化执行任务: 掘金每日签到, 沾喜气, 免费抽奖, 福利吧论坛签到, 最后将结果报告邮件通知订阅人。\
 自动化运行时间: 北京时间上午06:30
+
+本仓库中的 `workflows` 目录现已支持福利吧论坛签到，配置 `FULI_COOKIE` 后可运行 `npm run fuliba`。
 
 1. [Fork 仓库](https://github.com/iDerekLi/juejin-helper)
 
@@ -31,6 +33,7 @@
    | Name | Value | Required |
    | --- | --- | --- |
    | COOKIE | 掘金网站Cookie  | 是 |
+   | FULI_COOKIE | 福利吧论坛Cookie，多个账号使用 `@` 分隔 | 否 |
    | COOKIE_2 | 多用户, 当需要同时运行多个掘金用户时所需, 支持最多 **5** 名用户(即COOKIE + COOKIE_2 - COOKIE_5)  | 否 |
    | EMAIL_USER | 发件人邮箱地址(需要开启 SMTP) | 否 |
    | EMAIL_PASS | 发件人邮箱密码(SMTP密码) | 否 |
