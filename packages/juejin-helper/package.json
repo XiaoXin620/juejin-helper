@@ -9,6 +9,7 @@
   "module": "build/juejin-helper.esm.js",
   "types": "types/juejin-helper.d.ts",
   "scripts": {
+    "test:fuliba": "ts-node ./test/test-fuliba.ts",
     "test:login": "ts-node ./test/test-login.ts",
     "test:growth": "ts-node ./test/test-growth.ts",
     "test:seagold": "ts-node ./test/test-seagold.ts",

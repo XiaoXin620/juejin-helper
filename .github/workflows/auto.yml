@@ -7,6 +7,7 @@ on:
 
 env:
   COOKIE: ${{ secrets.COOKIE }}
+  FULI_COOKIE: ${{ secrets.FULI_COOKIE }}
   COOKIE_2: ${{ secrets.COOKIE_2 }}
   COOKIE_3: ${{ secrets.COOKIE_3 }}
   COOKIE_4: ${{ secrets.COOKIE_4 }}
@@ -32,6 +33,7 @@ jobs:
           cd workflows
           yarn
           yarn checkin
+          yarn fuliba
 
 #  SeaGold:
 #    needs: CheckIn

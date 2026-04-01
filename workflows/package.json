@@ -6,6 +6,7 @@
   "author": "Derek Li",
   "scripts": {
     "checkin": "ts-node checkin.js",
+    "fuliba": "ts-node fuliba.js",
     "seagold": "ts-node seagold.js"
   },
   "dependencies": {

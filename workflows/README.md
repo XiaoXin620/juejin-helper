@@ -16,6 +16,7 @@ cd workflows
 yarn
 yarn checkin
 yarn seagold
+yarn fuliba
 ```
 
 运行脚本前 配置环境变量 `/workflows/utils/env.js`
@@ -30,6 +31,7 @@ module.exports = {
 | Name | Value | Required |
 | --- | --- | --- |
 | COOKIE | 掘金网站Cookie  | 是 |
+| FULI_COOKIE | 福利吧论坛 Cookie，多个账号使用 `@` 分隔 | 否 |
 | COOKIE_2 | 多用户, 当需要同时运行多个掘金用户时所需, 支持最多 **5** 名用户(即COOKIE + COOKIE_2 - COOKIE_5)  | 否 |
 | EMAIL_USER | 发件人邮箱地址(需要开启 SMTP) | 否 |
 | EMAIL_PASS | 发件人邮箱密码(SMTP密码) | 否 |
@@ -38,3 +40,16 @@ module.exports = {
 | PUSHPLUS_TOKEN | [Pushplus](http://www.pushplus.plus/) 官网申请，支持微信消息推送 | 否 |
 |   WEIXIN_WEBHOOK | 企业微信机器人WEBHOOK                                    | 否 |
 
+## 福利吧论坛签到
+
+安装依赖后可直接运行：
+
+```shell
+yarn fuliba
+```
+
+环境变量：
+
+| Name | Value | Required |
+| --- | --- | --- |
+| FULI_COOKIE | 福利吧论坛 Cookie，多个账号使用 `@` 分隔 | 是 |
